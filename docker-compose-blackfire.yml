@@ -1,0 +1,12 @@
+version: '3'
+
+services:
+
+    blackfire:
+        build:
+            context: docker/blackfire
+            dockerfile: Dockerfile
+        env_file:
+            - docker/blackfire/.env
+        ports:
+            - '127.0.0.1:8707:8707'

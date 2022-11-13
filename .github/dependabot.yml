@@ -1,0 +1,130 @@
+version: 2
+updates:
+    # Main app.
+    -   package-ecosystem: composer
+        directory: "/"
+        registries: "*"
+        schedule:
+            interval: daily
+        open-pull-requests-limit: 10
+        commit-message:
+            prefix: "[DEPS]"
+        ignore:
+            # Ignore PHPUnit major updates as WordPress only supports version 7 and below.
+            - dependency-name: "phpunit/phpunit"
+              update-types: ["version-update:semver-major"]
+
+    # Monorepo builder tool.
+    -   package-ecosystem: composer
+        directory: "/tools/monorepo-builder"
+        registries: "*"
+        schedule:
+            interval: daily
+        open-pull-requests-limit: 10
+        commit-message:
+            prefix: "[DEPS]"
+    # PHP Codesniffer tool.
+    -   package-ecosystem: composer
+        directory: "/tools/php_codesniffer"
+        registries: "*"
+        schedule:
+            interval: daily
+        open-pull-requests-limit: 10
+        commit-message:
+            prefix: "[DEPS]"
+    # Docker app image.
+    -   package-ecosystem: docker
+        directory: "/docker/app"
+        registries: "*"
+        schedule:
+            interval: daily
+        open-pull-requests-limit: 10
+        commit-message:
+            prefix: "[SETUP]"
+        ignore:
+            - dependency-name: "*"
+              update-types: ["version-update:semver-major"]
+    # Docker blackfire image.
+    -   package-ecosystem: docker
+        directory: "/docker/blackfire"
+        registries: "*"
+        schedule:
+            interval: daily
+        open-pull-requests-limit: 10
+        commit-message:
+            prefix: "[SETUP]"
+        ignore:
+            - dependency-name: "*"
+              update-types: ["version-update:semver-major"]
+    # Docker database image.
+    -   package-ecosystem: docker
+        directory: "/docker/database"
+        registries: "*"
+        schedule:
+            interval: daily
+        open-pull-requests-limit: 10
+        commit-message:
+            prefix: "[SETUP]"
+        ignore:
+            - dependency-name: "*"
+              update-types: ["version-update:semver-major"]
+    # Docker mailhog image.
+    -   package-ecosystem: docker
+        directory: "/docker/mailhog"
+        registries: "*"
+        schedule:
+            interval: daily
+        open-pull-requests-limit: 10
+        commit-message:
+            prefix: "[SETUP]"
+        ignore:
+            - dependency-name: "*"
+              update-types: ["version-update:semver-major"]
+    # Docker memcached image.
+    -   package-ecosystem: docker
+        directory: "/docker/memcached"
+        registries: "*"
+        schedule:
+            interval: daily
+        open-pull-requests-limit: 10
+        commit-message:
+            prefix: "[SETUP]"
+        ignore:
+            - dependency-name: "*"
+              update-types: ["version-update:semver-major"]
+    # Docker nginx image.
+    -   package-ecosystem: docker
+        directory: "/docker/nginx"
+        registries: "*"
+        schedule:
+            interval: daily
+        open-pull-requests-limit: 10
+        commit-message:
+            prefix: "[SETUP]"
+        ignore:
+            - dependency-name: "*"
+              update-types: ["version-update:semver-major"]
+    # Docker node image.
+    -   package-ecosystem: docker
+        directory: "/docker/node"
+        registries: "*"
+        schedule:
+            interval: daily
+        open-pull-requests-limit: 10
+        commit-message:
+            prefix: "[SETUP]"
+        ignore:
+            - dependency-name: "*"
+              update-types: ["version-update:semver-major"]
+    # Docker styleguide image.
+    -   package-ecosystem: docker
+        directory: "/docker/styleguide"
+        registries: "*"
+        schedule:
+            interval: daily
+        open-pull-requests-limit: 10
+        commit-message:
+            prefix: "[SETUP]"
+        ignore:
+            - dependency-name: "*"
+              update-types: ["version-update:semver-major"]
